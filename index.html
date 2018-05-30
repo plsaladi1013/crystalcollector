@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal Collector</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./javascript/game.js"></script>
+</link>
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Added a link to Bootstrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-12">
+                <h1>The Crystals Collector!</h1>
+            </div>
+        </div>
+        <br/><br/>
+        <div class="row">
+                <!--to display computer generated random number btw 1,50-->
+            <div class="col-4">
+                <div id="random-number">Hello </div>
+            </div> 
+                <!--To display the score-->
+            <div class="col-4">
+                <div id="score">Wins:  
+                    <br/>
+                    Losses:
+                </div>
+            </div>
+        </div>
+        <br/><br/>
+        <div class="row">
+                <div class="col-3" >
+                        <img class="crystal" id = "amporphorus" src="./images/amorphorus.jpg" alt="amorphorus"></img>
+                </div>
+                <div class="col-3">
+                        <img class="crystal" id = "crystal1" src="./images/crystal1.jfif" alt="crystal"></img>
+                </div>
+                <div class="col-3">
+                        <img class="crystal" id= "prismatic" src="./images/prismatic.jpg" alt="prismatic"></img>
+                </div>
+                <div class="col-3">
+                        <img class="crystal" id="resinos" src="./images/resinos.jpg" alt="resinos"></img>
+                </div>
+        </div>
+        <br/><br/>
+        <div class="row">
+         <!--to display total-->
+            <div class="col-4">
+                <div id="sum">Your total score is:<br/> </div>
+            </div>       
+    </div>
+    <script type="text/javascript">
+
+    
+            // ... we generate a random number
+            var random = Math.floor(Math.random() * 50) + 1;
+            var amp=5;
+            var cry=3;
+            var prism=7;
+            var resino=1;
+            var totalVal=0;
+            var total=$("div");
+            
+            $("#random-number").text(random);
+          
+               
+ $("body").on("click", "#amporphorus", function() {
+    totalVal= totalVal+ amp;
+    console.log(totalVal);
+})
+$("body").on("click", "#crystal1", function() {
+    totalVal= totalVal+ cry;
+    console.log(totalVal);
+})
+$("body").on("click", "#prismatic", function() {
+    totalVal= totalVal+ prism;
+    console.log(totalVal);
+})
+$("body").on("click", "#resinos", function() {
+    totalVal= totalVal+ resino;
+    console.log(totalVal);
+})
+      
+</script>
+</body>
+
+</html>
