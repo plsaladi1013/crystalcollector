@@ -53,7 +53,7 @@
         <div class="row">
          <!--to display total-->
             <div class="col-4">
-                <div id="sum">Your total score is:<br/> </div>
+                Your total score is:<div id="sum"></div></div>
             </div>       
     </div>
     <script type="text/javascript">
@@ -67,27 +67,39 @@
             var resino=1;
             var totalVal=0;
             var total=$("div");
+            var win = 0;
+            var lose =0;
             
             $("#random-number").text(random);
           
-               
+ while(totalVal>=random){            
  $("body").on("click", "#amporphorus", function() {
     totalVal= totalVal+ amp;
     console.log(totalVal);
+    $("#sum").text(totalVal);   
 })
 $("body").on("click", "#crystal1", function() {
     totalVal= totalVal+ cry;
     console.log(totalVal);
+    $("#sum").text(totalVal);   
 })
 $("body").on("click", "#prismatic", function() {
     totalVal= totalVal+ prism;
     console.log(totalVal);
+    $("#sum").text(totalVal);   
 })
 $("body").on("click", "#resinos", function() {
     totalVal= totalVal+ resino;
     console.log(totalVal);
+    $("#sum").text(totalVal);   
 })
-      
+if(random==totalVal){ alert("you win");
+win++;
+}
+else if(totalVal>random){alert("you loose");
+lose++;
+}
+ }   
 </script>
 </body>
 
