@@ -24,15 +24,19 @@
         <div class="row">
                 <!--to display computer generated random number btw 1,50-->
             <div class="col-4">
-                <div id="random-number">Hello </div>
+                <div id=random-num>
+                    <div id="random-number"></div>
+                </div>
             </div> 
                 <!--To display the score-->
-            <div class="col-4">
-                <div id="score">Wins:  
-                    <br/>
-                    Losses:
+            <div id="Tscore">
+                <div class="col-4">
+                    Wins:  <div id="wins"></div>
+                    
+                    Losses: <div id="lose"></div>
                 </div>
             </div>
+
         </div>
         <br/><br/>
         <div class="row">
@@ -52,9 +56,14 @@
         <br/><br/>
         <div class="row">
          <!--to display total-->
+            
             <div class="col-4">
-                Your total score is:<div id="sum"></div></div>
-            </div>       
+                <div id="Ytotal">
+                Your total score is:<div id="sum"></div> 
+                </div>
+            </div> 
+        </div> 
+             
     </div>
     <script type="text/javascript">
 
@@ -71,35 +80,55 @@
             var lose =0;
             
             $("#random-number").text(random);
-          
- while(totalVal>=random){            
+    
+
+    function checkScore() {
+        if(random==totalVal)
+        {
+            win++;
+            $("#wins").text(win);
+            totalVal=0;
+            random = Math.floor(Math.random() * 50) + 1;
+            $("#random-number").text(random);
+            $("#sum").text(totalVal);  
+
+        } 
+        else if(totalVal>random){
+            lose++;
+            $("#lose").text(lose);
+            totalVal=0;
+            random = Math.floor(Math.random() * 50) + 1;
+            $("#random-number").text(random);
+            $("#sum").text(totalVal);  
+        }          
+    }          
+            
  $("body").on("click", "#amporphorus", function() {
     totalVal= totalVal+ amp;
     console.log(totalVal);
-    $("#sum").text(totalVal);   
+    $("#sum").text(totalVal);
+    checkScore();   
 })
 $("body").on("click", "#crystal1", function() {
     totalVal= totalVal+ cry;
     console.log(totalVal);
-    $("#sum").text(totalVal);   
+    $("#sum").text(totalVal); 
+    checkScore();   
 })
 $("body").on("click", "#prismatic", function() {
     totalVal= totalVal+ prism;
     console.log(totalVal);
-    $("#sum").text(totalVal);   
+    $("#sum").text(totalVal);  
+    checkScore();  
 })
 $("body").on("click", "#resinos", function() {
     totalVal= totalVal+ resino;
     console.log(totalVal);
-    $("#sum").text(totalVal);   
+    $("#sum").text(totalVal); 
+    checkScore();   
 })
-if(random==totalVal){ alert("you win");
-win++;
-}
-else if(totalVal>random){alert("you loose");
-lose++;
-}
- }   
+
+ 
 </script>
 </body>
 
